@@ -4,7 +4,7 @@
 This project contains a demo of a REST API with Flask for inventory management in a store
 
 ## Dependencies
-
+ 
 * `flask`: Micro Web Framework
 * `flask-restplus`: For simple REST API and Swagger documentation
 * `flask-sqlalchemy`: For support for SQLAlchemy(SQL ORM)
@@ -22,7 +22,6 @@ This project contains a demo of a REST API with Flask for inventory management i
 ### Directories:
 
 * `app`: This source code of the REST API
-* `migrations`: The database migrations
 * `tests`: This packages contains the test for the api
 * `docs`: This contains aux files for documentation
 
@@ -54,4 +53,43 @@ root/
 │  ├─ test_store.py
 │  ├─ test_stock.py
 ```
-## 
+## Setup
+
+### Install dependencies
+With conda:
+```
+conda env create --file enviroment.yml
+conda activate flask-rp
+```
+
+With pip:
+```
+pip install -r requirements.txt
+```
+
+### Database migration
+
+First set the database URI as env variable:
+```
+export DATABASE_URL=postgresql://<user>:<password>@localhost:5432/store_api
+```
+
+Then do the migration with `flask-migrate`:
+```
+flask db init
+flask db migrate
+flask db upgrade
+```
+
+### Run the app
+
+```
+FLASK_APP=app
+flask run
+```
+
+### Run the tests
+
+```
+python -m pytest --disable-warnings
+```

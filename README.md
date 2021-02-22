@@ -3,6 +3,8 @@
 
 This project contains a demo of a REST API with Flask for inventory management in a store
 
+![](docs/swagger-demo.png)
+
 ## Dependencies
  
 * `flask`: Micro Web Framework
